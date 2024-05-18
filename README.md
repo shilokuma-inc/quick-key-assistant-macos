@@ -1,5 +1,4 @@
-# template-app-ios
-iOS Application Template (SwiftUI)
+# Quick Key Assistant
 
 ## Status
 
@@ -15,36 +14,36 @@ iOS Application Template (SwiftUI)
       <tr>
         <td style="border:2px double #000080;text-align:left;">main</td>
         <td style="border:2px double #000080;text-align:center;">
-          <a href="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/build-main.yml">
-            <img src="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/build-main.yml/badge.svg" alt="IOSTemplateApp">
+          <a href="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/build-main.yml">
+            <img src="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/build-main.yml/badge.svg" alt="IOSTemplateApp">
           </a>
         </td>
         <td style="border:2px double #000080;text-align:center;">
-          <a href="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/archive-main.yml">
-            <img src="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/archive-main.yml/badge.svg" alt="IOSTemplateApp">
+          <a href="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/archive-main.yml">
+            <img src="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/archive-main.yml/badge.svg" alt="IOSTemplateApp">
           </a>
         </td>
         <td style="border:2px double #000080;text-align:center;">
-          <a href="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/release-develop.yml">
-            <img src="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/release-main.yml/badge.svg" alt="IOSTemplateApp">
+          <a href="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/release-develop.yml">
+            <img src="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/release-main.yml/badge.svg" alt="IOSTemplateApp">
           </a>
         </td>
       </tr>
       <tr>
         <td style="border:2px double #000080;text-align:left;">develop</td>
         <td style="border:2px double #000080;text-align:center;">
-          <a href="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/build-develop.yml">
-            <img src="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/build-develop.yml/badge.svg" alt="IOSTemplateApp">
+          <a href="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/build-develop.yml">
+            <img src="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/build-develop.yml/badge.svg" alt="IOSTemplateApp">
           </a>
         </td>
         <td style="border:2px double #000080;text-align:center;">
-          <a href="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/archive-develop.yml">
-            <img src="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/archive-develop.yml/badge.svg" alt="IOSTemplateApp">
+          <a href="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/archive-develop.yml">
+            <img src="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/archive-develop.yml/badge.svg" alt="IOSTemplateApp">
           </a>
         </td>
         <td style="border:2px double #000080;text-align:center;">
-          <a href="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/release-develop.yml">
-            <img src="https://github.com/shilokuma-inc/template-app-ios/actions/workflows/release-develop.yml/badge.svg" alt="IOSTemplateApp">
+          <a href="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/release-develop.yml">
+            <img src="https://github.com/shilokuma-inc/quick-key-assistant-macos/actions/workflows/release-develop.yml/badge.svg" alt="IOSTemplateApp">
           </a>
         </td>
       </tr>
