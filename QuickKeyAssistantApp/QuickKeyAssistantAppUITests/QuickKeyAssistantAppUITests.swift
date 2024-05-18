@@ -1,13 +1,13 @@
 //
-//  IOSTemplateAppUITests.swift
-//  IOSTemplateAppUITests
+//  QuickKeyAssistantAppUITests.swift
+//  QuickKeyAssistantAppUITests
 //
-//  Created by 村石 拓海 on 2024/05/12.
+//  Created by 村石 拓海 on 2024/05/19.
 //
 
 import XCTest
 
-final class IOSTemplateAppUITests: XCTestCase {
+final class QuickKeyAssistantAppUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

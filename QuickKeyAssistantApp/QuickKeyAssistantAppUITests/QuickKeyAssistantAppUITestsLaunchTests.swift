@@ -1,13 +1,13 @@
 //
-//  IOSTemplateAppUITestsLaunchTests.swift
-//  IOSTemplateAppUITests
+//  QuickKeyAssistantAppUITestsLaunchTests.swift
+//  QuickKeyAssistantAppUITests
 //
-//  Created by 村石 拓海 on 2024/05/12.
+//  Created by 村石 拓海 on 2024/05/19.
 //
 
 import XCTest
 
-final class IOSTemplateAppUITestsLaunchTests: XCTestCase {
+final class QuickKeyAssistantAppUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
