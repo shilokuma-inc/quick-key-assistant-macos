@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4F10DED42BF9074F00183632 /* QuickKeyAssistantApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10DED32BF9074F00183632 /* QuickKeyAssistantApp.swift */; };
+		4F10DED62BF9074F00183632 /* QuickKeyAssistantAppDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10DED52BF9074F00183632 /* QuickKeyAssistantAppDocument.swift */; };
+		4F10DED82BF9074F00183632 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10DED72BF9074F00183632 /* ContentView.swift */; };
+		4F10DEDA2BF9074F00183632 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F10DED92BF9074F00183632 /* Assets.xcassets */; };
+		4F10DEDD2BF9074F00183632 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F10DEDC2BF9074F00183632 /* Preview Assets.xcassets */; };
+		4F10DEE92BF9075000183632 /* QuickKeyAssistantAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10DEE82BF9075000183632 /* QuickKeyAssistantAppTests.swift */; };
+		4F10DEF32BF9075000183632 /* QuickKeyAssistantAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10DEF22BF9075000183632 /* QuickKeyAssistantAppUITests.swift */; };
+		4F10DEF52BF9075000183632 /* QuickKeyAssistantAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F10DEF42BF9075000183632 /* QuickKeyAssistantAppUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4F10DEE52BF9075000183632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F10DEC82BF9074F00183632 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F10DECF2BF9074F00183632;
+			remoteInfo = QuickKeyAssistantApp;
+		};
+		4F10DEEF2BF9075000183632 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4F10DEC82BF9074F00183632 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4F10DECF2BF9074F00183632;
+			remoteInfo = QuickKeyAssistantApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4F10DED02BF9074F00183632 /* QuickKeyAssistantApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickKeyAssistantApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F10DED32BF9074F00183632 /* QuickKeyAssistantApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickKeyAssistantApp.swift; sourceTree = "<group>"; };
+		4F10DED52BF9074F00183632 /* QuickKeyAssistantAppDocument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickKeyAssistantAppDocument.swift; sourceTree = "<group>"; };
+		4F10DED72BF9074F00183632 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4F10DED92BF9074F00183632 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4F10DEDC2BF9074F00183632 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4F10DEDE2BF9074F00183632 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4F10DEDF2BF9074F00183632 /* QuickKeyAssistantApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickKeyAssistantApp.entitlements; sourceTree = "<group>"; };
+		4F10DEE42BF9075000183632 /* QuickKeyAssistantAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickKeyAssistantAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F10DEE82BF9075000183632 /* QuickKeyAssistantAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickKeyAssistantAppTests.swift; sourceTree = "<group>"; };
+		4F10DEEE2BF9075000183632 /* QuickKeyAssistantAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuickKeyAssistantAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F10DEF22BF9075000183632 /* QuickKeyAssistantAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickKeyAssistantAppUITests.swift; sourceTree = "<group>"; };
+		4F10DEF42BF9075000183632 /* QuickKeyAssistantAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickKeyAssistantAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4F10DECD2BF9074F00183632 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F10DEE12BF9075000183632 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F10DEEB2BF9075000183632 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4F10DEC72BF9074F00183632 = {
+			isa = PBXGroup;
+			children = (
+				4F10DED22BF9074F00183632 /* QuickKeyAssistantApp */,
+				4F10DEE72BF9075000183632 /* QuickKeyAssistantAppTests */,
+				4F10DEF12BF9075000183632 /* QuickKeyAssistantAppUITests */,
+				4F10DED12BF9074F00183632 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4F10DED12BF9074F00183632 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4F10DED02BF9074F00183632 /* QuickKeyAssistantApp.app */,
+				4F10DEE42BF9075000183632 /* QuickKeyAssistantAppTests.xctest */,
+				4F10DEEE2BF9075000183632 /* QuickKeyAssistantAppUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4F10DED22BF9074F00183632 /* QuickKeyAssistantApp */ = {
+			isa = PBXGroup;
+			children = (
+				4F10DED32BF9074F00183632 /* QuickKeyAssistantApp.swift */,
+				4F10DED52BF9074F00183632 /* QuickKeyAssistantAppDocument.swift */,
+				4F10DED72BF9074F00183632 /* ContentView.swift */,
+				4F10DED92BF9074F00183632 /* Assets.xcassets */,
+				4F10DEDE2BF9074F00183632 /* Info.plist */,
+				4F10DEDF2BF9074F00183632 /* QuickKeyAssistantApp.entitlements */,
+				4F10DEDB2BF9074F00183632 /* Preview Content */,
+			);
+			path = QuickKeyAssistantApp;
+			sourceTree = "<group>";
+		};
+		4F10DEDB2BF9074F00183632 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				4F10DEDC2BF9074F00183632 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4F10DEE72BF9075000183632 /* QuickKeyAssistantAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				4F10DEE82BF9075000183632 /* QuickKeyAssistantAppTests.swift */,
+			);
+			path = QuickKeyAssistantAppTests;
+			sourceTree = "<group>";
+		};
+		4F10DEF12BF9075000183632 /* QuickKeyAssistantAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				4F10DEF22BF9075000183632 /* QuickKeyAssistantAppUITests.swift */,
+				4F10DEF42BF9075000183632 /* QuickKeyAssistantAppUITestsLaunchTests.swift */,
+			);
+			path = QuickKeyAssistantAppUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4F10DECF2BF9074F00183632 /* QuickKeyAssistantApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F10DEF82BF9075000183632 /* Build configuration list for PBXNativeTarget "QuickKeyAssistantApp" */;
+			buildPhases = (
+				4F10DECC2BF9074F00183632 /* Sources */,
+				4F10DECD2BF9074F00183632 /* Frameworks */,
+				4F10DECE2BF9074F00183632 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QuickKeyAssistantApp;
+			productName = QuickKeyAssistantApp;
+			productReference = 4F10DED02BF9074F00183632 /* QuickKeyAssistantApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4F10DEE32BF9075000183632 /* QuickKeyAssistantAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F10DEFB2BF9075000183632 /* Build configuration list for PBXNativeTarget "QuickKeyAssistantAppTests" */;
+			buildPhases = (
+				4F10DEE02BF9075000183632 /* Sources */,
+				4F10DEE12BF9075000183632 /* Frameworks */,
+				4F10DEE22BF9075000183632 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F10DEE62BF9075000183632 /* PBXTargetDependency */,
+			);
+			name = QuickKeyAssistantAppTests;
+			productName = QuickKeyAssistantAppTests;
+			productReference = 4F10DEE42BF9075000183632 /* QuickKeyAssistantAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		4F10DEED2BF9075000183632 /* QuickKeyAssistantAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F10DEFE2BF9075000183632 /* Build configuration list for PBXNativeTarget "QuickKeyAssistantAppUITests" */;
+			buildPhases = (
+				4F10DEEA2BF9075000183632 /* Sources */,
+				4F10DEEB2BF9075000183632 /* Frameworks */,
+				4F10DEEC2BF9075000183632 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4F10DEF02BF9075000183632 /* PBXTargetDependency */,
+			);
+			name = QuickKeyAssistantAppUITests;
+			productName = QuickKeyAssistantAppUITests;
+			productReference = 4F10DEEE2BF9075000183632 /* QuickKeyAssistantAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4F10DEC82BF9074F00183632 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1530;
+				LastUpgradeCheck = 1530;
+				TargetAttributes = {
+					4F10DECF2BF9074F00183632 = {
+						CreatedOnToolsVersion = 15.3;
+					};
+					4F10DEE32BF9075000183632 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 4F10DECF2BF9074F00183632;
+					};
+					4F10DEED2BF9075000183632 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 4F10DECF2BF9074F00183632;
+					};
+				};
+			};
+			buildConfigurationList = 4F10DECB2BF9074F00183632 /* Build configuration list for PBXProject "QuickKeyAssistantApp" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4F10DEC72BF9074F00183632;
+			productRefGroup = 4F10DED12BF9074F00183632 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4F10DECF2BF9074F00183632 /* QuickKeyAssistantApp */,
+				4F10DEE32BF9075000183632 /* QuickKeyAssistantAppTests */,
+				4F10DEED2BF9075000183632 /* QuickKeyAssistantAppUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4F10DECE2BF9074F00183632 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F10DEDD2BF9074F00183632 /* Preview Assets.xcassets in Resources */,
+				4F10DEDA2BF9074F00183632 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F10DEE22BF9075000183632 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F10DEEC2BF9075000183632 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4F10DECC2BF9074F00183632 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F10DED42BF9074F00183632 /* QuickKeyAssistantApp.swift in Sources */,
+				4F10DED62BF9074F00183632 /* QuickKeyAssistantAppDocument.swift in Sources */,
+				4F10DED82BF9074F00183632 /* ContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F10DEE02BF9075000183632 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F10DEE92BF9075000183632 /* QuickKeyAssistantAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4F10DEEA2BF9075000183632 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4F10DEF32BF9075000183632 /* QuickKeyAssistantAppUITests.swift in Sources */,
+				4F10DEF52BF9075000183632 /* QuickKeyAssistantAppUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4F10DEE62BF9075000183632 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F10DECF2BF9074F00183632 /* QuickKeyAssistantApp */;
+			targetProxy = 4F10DEE52BF9075000183632 /* PBXContainerItemProxy */;
+		};
+		4F10DEF02BF9075000183632 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4F10DECF2BF9074F00183632 /* QuickKeyAssistantApp */;
+			targetProxy = 4F10DEEF2BF9075000183632 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		4F10DEF62BF9075000183632 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4F10DEF72BF9075000183632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		4F10DEF92BF9075000183632 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuickKeyAssistantApp/QuickKeyAssistantApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QuickKeyAssistantApp/Preview Content\"";
+				DEVELOPMENT_TEAM = XU74X3434S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuickKeyAssistantApp/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.mrs1669.QuickKeyAssistantApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		4F10DEFA2BF9075000183632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QuickKeyAssistantApp/QuickKeyAssistantApp.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"QuickKeyAssistantApp/Preview Content\"";
+				DEVELOPMENT_TEAM = XU74X3434S;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuickKeyAssistantApp/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.mrs1669.QuickKeyAssistantApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		4F10DEFC2BF9075000183632 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XU74X3434S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.mrs1669.QuickKeyAssistantAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickKeyAssistantApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuickKeyAssistantApp";
+			};
+			name = Debug;
+		};
+		4F10DEFD2BF9075000183632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XU74X3434S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.3;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.mrs1669.QuickKeyAssistantAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/QuickKeyAssistantApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/QuickKeyAssistantApp";
+			};
+			name = Release;
+		};
+		4F10DEFF2BF9075000183632 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XU74X3434S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.mrs1669.QuickKeyAssistantAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = QuickKeyAssistantApp;
+			};
+			name = Debug;
+		};
+		4F10DF002BF9075000183632 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = XU74X3434S;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ml.mrs1669.QuickKeyAssistantAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = QuickKeyAssistantApp;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4F10DECB2BF9074F00183632 /* Build configuration list for PBXProject "QuickKeyAssistantApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F10DEF62BF9075000183632 /* Debug */,
+				4F10DEF72BF9075000183632 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F10DEF82BF9075000183632 /* Build configuration list for PBXNativeTarget "QuickKeyAssistantApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F10DEF92BF9075000183632 /* Debug */,
+				4F10DEFA2BF9075000183632 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F10DEFB2BF9075000183632 /* Build configuration list for PBXNativeTarget "QuickKeyAssistantAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F10DEFC2BF9075000183632 /* Debug */,
+				4F10DEFD2BF9075000183632 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F10DEFE2BF9075000183632 /* Build configuration list for PBXNativeTarget "QuickKeyAssistantAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4F10DEFF2BF9075000183632 /* Debug */,
+				4F10DF002BF9075000183632 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4F10DEC82BF9074F00183632 /* Project object */;
+}
