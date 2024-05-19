@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MenuView: View {
+    @State private var isHovered = false
+    
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
@@ -180,6 +182,21 @@ struct MenuView: View {
                     
                     Text("⇧ esc")
                         .foregroundStyle(.gray)
+                }
+                
+                ZStack(alignment: .leading) {
+                    if isHovered {
+                        Color.gray.opacity(0.3)
+                    }
+                    Text("Official Documents")
+                        .onHover { hovered in
+                            self.isHovered = hovered
+                        }
+                        .onTapGesture {
+                            if let url = URL(string: "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }
                 }
             }
             .padding(16)
