@@ -19,8 +19,5 @@ struct QuickKeyAssistantApp: App {
                 Text("？")
             }
         }
-        WindowGroup {
-            ContentView()
-        }
     }
 }
