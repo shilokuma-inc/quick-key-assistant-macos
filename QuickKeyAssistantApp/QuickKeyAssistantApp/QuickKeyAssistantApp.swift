@@ -19,5 +19,6 @@ struct QuickKeyAssistantApp: App {
                 Text("？")
             }
         }
+        .menuBarExtraStyle(.window)
     }
 }
