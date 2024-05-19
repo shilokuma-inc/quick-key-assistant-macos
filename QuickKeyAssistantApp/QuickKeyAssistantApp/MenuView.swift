@@ -99,6 +99,7 @@ struct MenuView: View {
             .padding(16)
         }
         .frame(width: 200)
+        .frame(maxHeight: 600)
     }
 }
 
