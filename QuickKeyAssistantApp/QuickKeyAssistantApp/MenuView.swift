@@ -33,6 +33,15 @@ struct MenuView: View {
                 }
                 
                 HStack {
+                    Text("Build")
+                    
+                    Spacer()
+                    
+                    Text("⌘ B")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
                     Text("Comment out")
                     
                     Spacer()
@@ -56,6 +65,83 @@ struct MenuView: View {
                     Spacer()
                     
                     Text("⌘ ^ E")
+                        .foregroundStyle(.gray)
+                }
+                
+                Divider()
+                
+                Text("Simulator")
+                    .foregroundStyle(.gray)
+                
+                HStack {
+                    Text("Screenshot")
+                    
+                    Spacer()
+                    
+                    Text("⌘ S")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Record")
+                    
+                    Spacer()
+                    
+                    Text("⌘ S")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Home")
+                    
+                    Spacer()
+                    
+                    Text("⌘ ⇧ H")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Lock")
+                    
+                    Spacer()
+                    
+                    Text("⌘ L")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Rotate LR")
+                    
+                    Spacer()
+                    
+                    Text("⌘ ←→")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Shake")
+                    
+                    Spacer()
+                    
+                    Text("⌘ ^ Z")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Keyboard I/O")
+                    
+                    Spacer()
+                    
+                    Text("⌘ K")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Input Mac Keyboard")
+                    
+                    Spacer()
+                    
+                    Text("⌘ ⇧ K")
                         .foregroundStyle(.gray)
                 }
                 
@@ -99,7 +185,7 @@ struct MenuView: View {
             .padding(16)
         }
         .frame(width: 200)
-        .frame(maxHeight: 600)
+        .frame(maxHeight: 400)
     }
 }
 
