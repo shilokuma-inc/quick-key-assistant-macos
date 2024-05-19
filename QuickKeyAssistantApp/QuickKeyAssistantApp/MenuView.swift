@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State private var isHovered = false
+    @State private var isHoveredGitHub = false
+    @State private var isHoveredSlack = false
     
     var body: some View {
         ScrollView {
@@ -170,6 +171,21 @@ struct MenuView: View {
                         .foregroundStyle(.gray)
                 }
                 
+                ZStack(alignment: .leading) {
+                    if isHoveredGitHub {
+                        Color.gray.opacity(0.3)
+                    }
+                    Text("Official Documents")
+                        .onHover { hovered in
+                            self.isHoveredGitHub = hovered
+                        }
+                        .onTapGesture {
+                            if let url = URL(string: "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts") {
+                                NSWorkspace.shared.open(url)
+                            }
+                        }
+                }
+                
                 Divider()
                 
                 Text("Slack")
@@ -185,12 +201,12 @@ struct MenuView: View {
                 }
                 
                 ZStack(alignment: .leading) {
-                    if isHovered {
+                    if isHoveredSlack {
                         Color.gray.opacity(0.3)
                     }
                     Text("Official Documents")
                         .onHover { hovered in
-                            self.isHovered = hovered
+                            self.isHoveredSlack = hovered
                         }
                         .onTapGesture {
                             if let url = URL(string: "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands") {
