@@ -19,7 +19,7 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Text("⌘ + R")
+                    Text("⌘ R")
                         .foregroundStyle(.gray)
                 }
                 
@@ -28,7 +28,34 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Text("⌘ + U")
+                    Text("⌘ U")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Comment out")
+                    
+                    Spacer()
+                    
+                    Text("⌘ /")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Indentation")
+                    
+                    Spacer()
+                    
+                    Text("^ I")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Rename")
+                    
+                    Spacer()
+                    
+                    Text("⌘ ^ E")
                         .foregroundStyle(.gray)
                 }
                 
@@ -42,7 +69,7 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Text("G > I")
+                    Text("G I")
                         .foregroundStyle(.gray)
                 }
                 
@@ -51,7 +78,7 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Text("G > P")
+                    Text("G P")
                         .foregroundStyle(.gray)
                 }
                 
@@ -65,7 +92,7 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Text("⇧ + esc")
+                    Text("⇧ esc")
                         .foregroundStyle(.gray)
                 }
             }
