@@ -1,29 +1,8 @@
 {
   "images" : [
     {
-      "filename" : "MenuIcon 4.png",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "MenuIcon 3.png",
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "filename" : "MenuIcon 2.png",
-      "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "filename" : "MenuIcon 1.png",
-      "idiom" : "mac",
-      "scale" : "1x"
-    },
-    {
-      "filename" : "MenuIcon.png",
-      "idiom" : "mac",
-      "scale" : "2x"
+      "filename" : "MenuIcon.svg",
+      "idiom" : "universal"
     }
   ],
   "info" : {
