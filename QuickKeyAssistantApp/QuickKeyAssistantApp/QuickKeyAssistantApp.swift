@@ -10,6 +10,11 @@ import SwiftUI
 @main
 struct QuickKeyAssistantApp: App {
     var body: some Scene {
+        MenuBarExtra {
+//                    MenuView()
+        } label: {
+            Image(systemName: "star.fill")
+        }
         WindowGroup {
             ContentView()
         }
