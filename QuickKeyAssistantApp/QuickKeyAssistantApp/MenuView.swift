@@ -214,6 +214,20 @@ struct MenuView: View {
                             }
                         }
                 }
+                
+                Divider()
+                
+                HStack {
+                    Text("Quit")
+                    
+                    Spacer()
+                    
+                    Text("⌘ Q")
+                        .foregroundStyle(.gray)
+                }
+                .onTapGesture {
+                    NSApplication.shared.terminate(nil)
+                }
             }
             .padding(16)
         }
