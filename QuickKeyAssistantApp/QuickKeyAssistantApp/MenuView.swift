@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     @State private var isHoveredGitHub = false
     @State private var isHoveredSlack = false
+    @State private var isHoveredQuit = false
     
     var body: some View {
         ScrollView {
@@ -217,16 +218,25 @@ struct MenuView: View {
                 
                 Divider()
                 
-                HStack {
-                    Text("Quit")
+                ZStack(alignment: .leading) {
+                    if isHoveredQuit {
+                        Color.gray.opacity(0.3)
+                    }
                     
-                    Spacer()
-                    
-                    Text("⌘ Q")
-                        .foregroundStyle(.gray)
-                }
-                .onTapGesture {
-                    NSApplication.shared.terminate(nil)
+                    HStack {
+                        Text("Quit")
+                        
+                        Spacer()
+                        
+                        Text("⌘ Q")
+                            .foregroundStyle(.gray)
+                    }
+                    .onHover { hovered in
+                        self.isHoveredQuit = hovered
+                    }
+                    .onTapGesture {
+                        NSApplication.shared.terminate(nil)
+                    }
                 }
             }
             .padding(16)
