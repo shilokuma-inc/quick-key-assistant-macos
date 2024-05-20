@@ -91,7 +91,7 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Text("⌘ S")
+                    Text("⌘ R")
                         .foregroundStyle(.gray)
                 }
                 
@@ -153,6 +153,33 @@ struct MenuView: View {
                 
                 Text("GitHub")
                     .foregroundStyle(.gray)
+                
+                HStack {
+                    Text("Focus SearchBar")
+                    
+                    Spacer()
+                    
+                    Text("S or /")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Notifications")
+                    
+                    Spacer()
+                    
+                    Text("G N")
+                        .foregroundStyle(.gray)
+                }
+                
+                HStack {
+                    Text("Command Palette")
+                    
+                    Spacer()
+                    
+                    Text("⌘ K")
+                        .foregroundStyle(.gray)
+                }
                 
                 HStack {
                     Text("Issue Tab")
