@@ -90,7 +90,7 @@ struct MenuView: View {
                     
                     Spacer()
                     
-                    Text("⌘ S")
+                    Text("⌘ R")
                         .foregroundStyle(.gray)
                 }
                 
