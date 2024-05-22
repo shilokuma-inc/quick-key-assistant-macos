@@ -20,5 +20,9 @@ struct QuickKeyAssistantApp: App {
             }
         }
         .menuBarExtraStyle(.window)
+        
+        Settings {
+            SettingView()
+        }
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct MenuView: View {
     @State private var isHoveredGitHub = false
     @State private var isHoveredSlack = false
+    @State private var isHoveredAbout = false
     @State private var isHoveredQuit = false
     
     var body: some View {
@@ -244,6 +245,26 @@ struct MenuView: View {
                 }
                 
                 Divider()
+                
+                ZStack(alignment: .leading) {
+                    if isHoveredAbout {
+                        Color.gray.opacity(0.3)
+                    }
+                    
+                    HStack {
+                        Text("About QuickKeyAssistant")
+                        
+                        Spacer()
+                    }
+                    .onHover { hovered in
+                        self.isHoveredAbout = hovered
+                    }
+                    .onTapGesture {
+                        NSApp.activate(ignoringOtherApps: true)
+                        NSApp.orderFrontStandardAboutPanel()
+                    }
+
+                }
                 
                 ZStack(alignment: .leading) {
                     if isHoveredQuit {
