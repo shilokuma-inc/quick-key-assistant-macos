@@ -15,6 +15,7 @@
 		4F3978312BF912B900E462C0 /* QuickKeyAssistantAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F3978302BF912B900E462C0 /* QuickKeyAssistantAppUITestsLaunchTests.swift */; };
 		4F6896B32BF9FDAD00EF0D4D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6896B22BF9FDAD00EF0D4D /* MenuView.swift */; };
 		4F8F72412BF9FAFD00EB1869 /* Extension+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F72402BF9FAFD00EB1869 /* Extension+NSImage.swift */; };
+		4F9EC4162BFE682A002E131D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EC4152BFE682A002E131D /* SettingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		4F3978302BF912B900E462C0 /* QuickKeyAssistantAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickKeyAssistantAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		4F6896B22BF9FDAD00EF0D4D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4F8F72402BF9FAFD00EB1869 /* Extension+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSImage.swift"; sourceTree = "<group>"; };
+		4F9EC4152BFE682A002E131D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				4F3978122BF912B800E462C0 /* QuickKeyAssistantApp.swift */,
 				4F6896B22BF9FDAD00EF0D4D /* MenuView.swift */,
 				4F8F72402BF9FAFD00EB1869 /* Extension+NSImage.swift */,
+				4F9EC4152BFE682A002E131D /* SettingView.swift */,
 				4F3978162BF912B900E462C0 /* Assets.xcassets */,
 				4F39781B2BF912B900E462C0 /* QuickKeyAssistantApp.entitlements */,
 				4F3978182BF912B900E462C0 /* Preview Content */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F6896B32BF9FDAD00EF0D4D /* MenuView.swift in Sources */,
+				4F9EC4162BFE682A002E131D /* SettingView.swift in Sources */,
 				4F8F72412BF9FAFD00EB1869 /* Extension+NSImage.swift in Sources */,
 				4F3978132BF912B800E462C0 /* QuickKeyAssistantApp.swift in Sources */,
 			);
