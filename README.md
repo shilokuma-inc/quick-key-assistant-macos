@@ -2,7 +2,7 @@
 
 ## App Store
 
-<table><tr><td>ダウンロードリンク</td><td style="text-align: center;"><a href="https://apps.apple.com/jp/app/blanche-de-noel/id6502287377"><img src="https://apple-resources.s3.amazonaws.com/media-badges/download-on-the-mac-app-store/black/en-us.svg" width="100"></tr><tr><td>QRコード</td><td style="text-align: center;"><a href="https://apps.apple.com/jp/app/blanche-de-noel/id6502287377"><img src="https://tools-qr-production.s3.amazonaws.com/output/apple-toolbox/967a3d239a06c3dde1ab706165befc37/928dfd97b55425d6ea10c0f358491f82.png" height="100"></a></td></tr></table>
+<table><tr><td>ダウンロードリンク</td><td style="text-align: center;"><a href="https://apps.apple.com/jp/app/quick-key-assistant/id6502866822"><img src="https://apple-resources.s3.amazonaws.com/media-badges/download-on-the-mac-app-store/black/en-us.svg" width="100"></tr><tr><td>QRコード</td><td style="text-align: center;"><a href="https://apps.apple.com/jp/app/quick-key-assistant/id6502866822"><img src="https://tools-qr-production.s3.amazonaws.com/output/apple-toolbox/967a3d239a06c3dde1ab706165befc37/928dfd97b55425d6ea10c0f358491f82.png" height="100"></a></td></tr></table>
 
 ## Status
 
