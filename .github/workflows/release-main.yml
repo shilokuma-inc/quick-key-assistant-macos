@@ -35,6 +35,9 @@ jobs:
           } >> "$GITHUB_ENV"
 
       - name: Archive Project
+        # 署名なし（CODE_SIGNING_ALLOWED=NO）で Archive すると entitlements が埋め込まれず、
+        # App Store Connect で App Sandbox が無効と判定される。アドホック署名で entitlements を残し、Export 時に配布用で署名し直す。
+        # macOS では manageAppVersionAndBuildNumber でビルド番号が採番されないため、実行日時（UTC）をビルド番号にする
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
@@ -43,7 +46,12 @@ jobs:
                               -sdk macosx \
                               -configuration Release \
                               -archivePath "$RUNNER_TEMP/build.xcarchive" \
-                              CODE_SIGNING_ALLOWED=NO
+                              CURRENT_PROJECT_VERSION="$(date -u +%Y%m%d%H%M)" \
+                              CODE_SIGN_STYLE=Manual \
+                              CODE_SIGN_IDENTITY=- \
+                              DEVELOPMENT_TEAM= \
+                              PROVISIONING_PROFILE_SPECIFIER=
+          codesign -d --entitlements - "$RUNNER_TEMP"/build.xcarchive/Products/Applications/*.app
 
       - name: Create ExportOptions.plist and API private key
         # Secrets はシェル展開ではなく env 経由で渡す
@@ -81,14 +89,13 @@ jobs:
           if-no-files-found: error
 
       - name: Upload pkg file to App Store Connect
-        # ビルド番号は Xcode に採番させる（manageAppVersionAndBuildNumber）。
         # org 共有の EXPORT_OPTIONS Secret は他リポジトリでも使うため書き換えず、ランナー上のコピーだけを上書きする
         env:
           APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
           APPLE_API_ISSUER_ID: ${{ secrets.APPLE_API_ISSUER_ID }}
         run: |
           plutil -replace destination -string upload "$EXPORT_OPTIONS_PATH"
-          plutil -replace manageAppVersionAndBuildNumber -bool YES "$EXPORT_OPTIONS_PATH"
+          plutil -replace manageAppVersionAndBuildNumber -bool NO "$EXPORT_OPTIONS_PATH"
           xcodebuild -exportArchive \
                      -archivePath "$RUNNER_TEMP/build.xcarchive" \
                      -exportOptionsPlist "$EXPORT_OPTIONS_PATH" \
