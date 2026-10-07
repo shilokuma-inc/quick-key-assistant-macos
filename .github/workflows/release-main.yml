@@ -3,8 +3,9 @@ name: Release
 on:
   push:
     branches: main
+  workflow_dispatch:
 
-jobs:          
+jobs:
   build:
     name: main
     runs-on: macos-latest
@@ -22,56 +23,84 @@ jobs:
           defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES
 
       - name: Set Environment
+        # ExportOptions.plist と API 秘密鍵はリポジトリ配下ではなく RUNNER_TEMP に置く
+        env:
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
         run: |
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then app_name="`ls -A | grep -i \\.xcworkspace\$`"; else app_name="`ls -A | grep -i \\.xcodeproj\$`"; fi
-          if [[ "$app_name" == *.xcodeproj ]]; then
-            project_name="${app_name%.xcodeproj}"
-          elif [[ "$app_name" == *.xcworkspace ]]; then
-            project_name="${app_name%.xcworkspace}"
-          fi
-          echo "PROJECT_NAME=$project_name" >> $GITHUB_ENV
+          project=$(basename -s .xcodeproj ./*.xcodeproj)
+          {
+            echo "PROJECT_NAME=$project"
+            echo "EXPORT_OPTIONS_PATH=$RUNNER_TEMP/ExportOptions.plist"
+            echo "API_KEY_PATH=$RUNNER_TEMP/private_keys/AuthKey_$APPLE_API_KEY_ID.p8"
+          } >> "$GITHUB_ENV"
 
       - name: Archive Project
+        # 署名なし（CODE_SIGNING_ALLOWED=NO）で Archive すると entitlements が埋め込まれず、
+        # App Store Connect で App Sandbox が無効と判定される。アドホック署名で entitlements を残し、Export 時に配布用で署名し直す。
+        # macOS では manageAppVersionAndBuildNumber でビルド番号が採番されないため、実行日時（UTC）をビルド番号にする
         run: |
-          if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
-          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")              
-          xcodebuild archive -"$filetype_parameter" "$file_to_build" \
-                              -scheme $default \
+          default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
+          xcodebuild archive -project "$PROJECT_NAME.xcodeproj" \
+                              -scheme "$default" \
                               -sdk macosx \
                               -configuration Release \
-                              -archivePath build.xcarchive \
-                              CODE_SIGNING_ALLOWED=NO
+                              -archivePath "$RUNNER_TEMP/build.xcarchive" \
+                              CURRENT_PROJECT_VERSION="$(date -u +%Y%m%d%H%M)" \
+                              CODE_SIGN_STYLE=Manual \
+                              CODE_SIGN_IDENTITY=- \
+                              DEVELOPMENT_TEAM= \
+                              PROVISIONING_PROFILE_SPECIFIER=
+          codesign -d --entitlements - "$RUNNER_TEMP"/build.xcarchive/Products/Applications/*.app
 
-      - name: Create ExportOptions.plist
+      - name: Create ExportOptions.plist and API private key
+        # Secrets はシェル展開ではなく env 経由で渡す
+        env:
+          EXPORT_OPTIONS: ${{ secrets.EXPORT_OPTIONS }}
+          APPLE_API_KEY_BASE64: ${{ secrets.APPLE_API_KEY_BASE64 }}
         run: |
-          echo '${{ secrets.EXPORT_OPTIONS }}' > ExportOptions.plist
+          printf '%s' "$EXPORT_OPTIONS" > "$EXPORT_OPTIONS_PATH"
+          plutil -lint "$EXPORT_OPTIONS_PATH"
+          mkdir -p "$(dirname "$API_KEY_PATH")"
+          printf '%s' "$APPLE_API_KEY_BASE64" | base64 --decode > "$API_KEY_PATH"
 
-      - name: Create Private Key
+      - name: Export App
+        env:
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER_ID: ${{ secrets.APPLE_API_ISSUER_ID }}
         run: |
-          mkdir private_keys
-          echo -n '${{ secrets.APPLE_API_KEY_BASE64 }}' | base64 --decode > ./private_keys/AuthKey_${{ secrets.APPLE_API_ISSUER_ID }}.p8
-
-      - name: Export IPA
-        run: |   
+          plutil -replace destination -string export "$EXPORT_OPTIONS_PATH"
           xcodebuild -exportArchive \
-                     -archivePath build.xcarchive \
-                     -exportOptionsPlist ExportOptions.plist \
-                     -exportPath app.ipa \
+                     -archivePath "$RUNNER_TEMP/build.xcarchive" \
+                     -exportOptionsPlist "$EXPORT_OPTIONS_PATH" \
+                     -exportPath "$RUNNER_TEMP/export" \
                      -allowProvisioningUpdates \
-                     -authenticationKeyPath `pwd`/private_keys/AuthKey_${{ secrets.APPLE_API_ISSUER_ID }}.p8 \
-                     -authenticationKeyID ${{ secrets.APPLE_API_KEY_ID }} \
-                     -authenticationKeyIssuerID ${{ secrets.APPLE_API_ISSUER_ID }}
+                     -authenticationKeyPath "$API_KEY_PATH" \
+                     -authenticationKeyID "$APPLE_API_KEY_ID" \
+                     -authenticationKeyIssuerID "$APPLE_API_ISSUER_ID"
+          ls -la "$RUNNER_TEMP/export"
 
-      - name: Upload IPA file to App Store Connect
-        run: |
-          xcrun altool --upload-app -f app.ipa/${{ env.PROJECT_NAME }}.ipa \
-                      -u ${{ secrets.APPLE_ID }} \
-                      -p ${{ secrets.APP_SPECIFIC_PASSWORD }} \
-                      --type ios
-
-      - name: Upload IPA file to GitHub
+      - name: Upload pkg file to GitHub
+        # macOS アプリの App Store 向け書き出しは .ipa ではなく .pkg になるため、拡張子とファイル名を決め打ちしない
         uses: actions/upload-artifact@v7
         with:
-          name: ${{ env.PROJECT_NAME }}.ipa
-          path: app.ipa/${{ env.PROJECT_NAME }}.ipa
+          name: ${{ env.PROJECT_NAME }}.pkg
+          path: ${{ runner.temp }}/export/*.pkg
+          if-no-files-found: error
+
+      - name: Upload pkg file to App Store Connect
+        # org 共有の EXPORT_OPTIONS Secret は他リポジトリでも使うため書き換えず、ランナー上のコピーだけを上書きする
+        env:
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER_ID: ${{ secrets.APPLE_API_ISSUER_ID }}
+        run: |
+          plutil -replace destination -string upload "$EXPORT_OPTIONS_PATH"
+          plutil -replace manageAppVersionAndBuildNumber -bool NO "$EXPORT_OPTIONS_PATH"
+          xcodebuild -exportArchive \
+                     -archivePath "$RUNNER_TEMP/build.xcarchive" \
+                     -exportOptionsPlist "$EXPORT_OPTIONS_PATH" \
+                     -exportPath "$RUNNER_TEMP/upload" \
+                     -allowProvisioningUpdates \
+                     -authenticationKeyPath "$API_KEY_PATH" \
+                     -authenticationKeyID "$APPLE_API_KEY_ID" \
+                     -authenticationKeyIssuerID "$APPLE_API_ISSUER_ID"
