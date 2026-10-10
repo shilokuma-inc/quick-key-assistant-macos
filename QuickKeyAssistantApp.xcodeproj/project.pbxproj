@@ -16,6 +16,8 @@
 		4F6896B32BF9FDAD00EF0D4D /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6896B22BF9FDAD00EF0D4D /* MenuView.swift */; };
 		4F8F72412BF9FAFD00EB1869 /* Extension+NSImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F8F72402BF9FAFD00EB1869 /* Extension+NSImage.swift */; };
 		4F9EC4162BFE682A002E131D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9EC4152BFE682A002E131D /* SettingView.swift */; };
+		4FA1B0012F00000100A1B2C3 /* Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1B0002F00000100A1B2C3 /* Shortcut.swift */; };
+		4FA1B0032F00000100A1B2C3 /* ShortcutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA1B0022F00000100A1B2C3 /* ShortcutTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		4F6896B22BF9FDAD00EF0D4D /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		4F8F72402BF9FAFD00EB1869 /* Extension+NSImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+NSImage.swift"; sourceTree = "<group>"; };
 		4F9EC4152BFE682A002E131D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		4FA1B0002F00000100A1B2C3 /* Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcut.swift; sourceTree = "<group>"; };
+		4FA1B0022F00000100A1B2C3 /* ShortcutTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +105,7 @@
 			children = (
 				4F3978122BF912B800E462C0 /* QuickKeyAssistantApp.swift */,
 				4F6896B22BF9FDAD00EF0D4D /* MenuView.swift */,
+				4FA1B0002F00000100A1B2C3 /* Shortcut.swift */,
 				4F8F72402BF9FAFD00EB1869 /* Extension+NSImage.swift */,
 				4F9EC4152BFE682A002E131D /* SettingView.swift */,
 				4F3978162BF912B900E462C0 /* Assets.xcassets */,
@@ -122,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				4F3978242BF912B900E462C0 /* QuickKeyAssistantAppTests.swift */,
+				4FA1B0022F00000100A1B2C3 /* ShortcutTests.swift */,
 			);
 			path = QuickKeyAssistantAppTests;
 			sourceTree = "<group>";
@@ -266,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F6896B32BF9FDAD00EF0D4D /* MenuView.swift in Sources */,
+				4FA1B0012F00000100A1B2C3 /* Shortcut.swift in Sources */,
 				4F9EC4162BFE682A002E131D /* SettingView.swift in Sources */,
 				4F8F72412BF9FAFD00EB1869 /* Extension+NSImage.swift in Sources */,
 				4F3978132BF912B800E462C0 /* QuickKeyAssistantApp.swift in Sources */,
@@ -277,6 +284,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F3978252BF912B900E462C0 /* QuickKeyAssistantAppTests.swift in Sources */,
+				4FA1B0032F00000100A1B2C3 /* ShortcutTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
