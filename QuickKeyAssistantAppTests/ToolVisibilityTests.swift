@@ -13,7 +13,7 @@ final class ToolVisibilityTests: XCTestCase {
     }
 
     func testHiddenSectionsAreExcludedInOriginalOrder() {
-        let rawValue = ToolVisibility.rawValue(from: [ToolSection.simulator.id, ToolSection.slack.id])
+        let rawValue = ToolVisibility.rawValue(from: [ToolSection.deviceHub.id, ToolSection.slack.id])
         XCTAssertEqual(ToolVisibility.visibleSections(ToolSection.all, hiddenRawValue: rawValue), [.xcode, .gitHub])
     }
 

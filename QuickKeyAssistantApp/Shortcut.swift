@@ -44,17 +44,26 @@ extension ToolSection {
         documentURL: nil
     )
 
-    static let simulator = ToolSection(
-        name: "Simulator",
+    /// Xcode 27 で Simulator を置き換えたアプリ。キー表記の公式ドキュメントが無いため、Device Hub のメニューバーの表示を出典にしている
+    static let deviceHub = ToolSection(
+        name: "Device Hub",
         shortcuts: [
-            Shortcut(name: "Screenshot", keys: "⌘ S"),
-            Shortcut(name: "Record", keys: "⌘ R"),
             Shortcut(name: "Home", keys: "⌘ ⇧ H"),
             Shortcut(name: "Lock", keys: "⌘ L"),
-            Shortcut(name: "Rotate LR", keys: "⌘ ←→"),
+            Shortcut(name: "Siri", keys: "⌘ ⇧ ⌥ H"),
+            Shortcut(name: "App Switcher", keys: "⌘ ⇧ ^ H"),
             Shortcut(name: "Shake", keys: "⌘ ^ Z"),
-            Shortcut(name: "Keyboard I/O", keys: "⌘ K"),
-            Shortcut(name: "Input Mac Keyboard", keys: "⌘ ⇧ K"),
+            Shortcut(name: "Screenshot", keys: "⌘ ⇧ S"),
+            Shortcut(name: "Record Screen", keys: "⌘ ⇧ R"),
+            Shortcut(name: "Software Keyboard", keys: "⌘ ⌥ K"),
+            Shortcut(name: "Volume Up", keys: "⌘ ↑"),
+            Shortcut(name: "Volume Down", keys: "⌘ ↓"),
+            Shortcut(name: "Zoom to Fit", keys: "⌘ 0"),
+            Shortcut(name: "Physical Size", keys: "⌘ 1"),
+            Shortcut(name: "New Window", keys: "⌘ ⇧ N"),
+            Shortcut(name: "Toggle Sidebar", keys: "⌘ ⇧ L"),
+            Shortcut(name: "Toggle Inspector", keys: "⌘ I"),
+            Shortcut(name: "Quit & Keep Running", keys: "⌘ ⌥ Q"),
         ],
         documentURL: nil
     )
@@ -111,7 +120,7 @@ extension ToolSection {
         documentURL: URL(string: "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands")
     )
 
-    static let all: [ToolSection] = [.xcode, .simulator, .gitHub, .slack]
+    static let all: [ToolSection] = [.xcode, .deviceHub, .gitHub, .slack]
 }
 
 extension ToolSection {
