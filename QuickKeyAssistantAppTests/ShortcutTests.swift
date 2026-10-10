@@ -50,6 +50,11 @@ final class ShortcutTests: XCTestCase {
         XCTAssertEqual(ToolSection.slack.documentURL?.absoluteString, "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands")
     }
 
+    func testGitHubKeepsExistingShortcutsFirst() {
+        let names = ToolSection.gitHub.shortcuts.prefix(5).map(\.name)
+        XCTAssertEqual(names, ["Focus SearchBar", "Notifications", "Command Palette", "Issue Tab", "Pull requests Tab"])
+    }
+
     func testSectionLookupReturnsMatchingSection() {
         XCTAssertEqual(ToolSection.section(id: ToolSection.gitHub.id, in: ToolSection.all), .gitHub)
     }
