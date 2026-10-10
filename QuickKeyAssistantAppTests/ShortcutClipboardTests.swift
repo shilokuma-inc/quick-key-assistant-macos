@@ -23,8 +23,9 @@ final class ShortcutClipboardTests: XCTestCase {
     }
 
     func testCopyWritesOnlyKeys() {
-        ShortcutClipboard.copy(Shortcut(name: "Clean", keys: "⌘ ⇧ K"), to: pasteboard)
+        let copied = ShortcutClipboard.copy(Shortcut(name: "Clean", keys: "⌘ ⇧ K"), to: pasteboard)
 
+        XCTAssertTrue(copied)
         XCTAssertEqual(pasteboard.string(forType: .string), "⌘ ⇧ K")
     }
 

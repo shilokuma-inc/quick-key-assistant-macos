@@ -137,7 +137,7 @@ struct MenuView: View {
     }
     
     private func copy(_ shortcut: Shortcut) {
-        ShortcutClipboard.copy(shortcut)
+        guard ShortcutClipboard.copy(shortcut) else { return }
         copiedShortcut = shortcut
         let id = UUID()
         copyID = id
