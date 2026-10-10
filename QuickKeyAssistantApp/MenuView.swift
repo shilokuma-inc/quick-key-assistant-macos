@@ -13,6 +13,8 @@ struct MenuView: View {
     @State private var isHoveredDocument = false
     @State private var isHoveredAbout = false
     @State private var isHoveredQuit = false
+    @State private var copiedShortcut: Shortcut?
+    @State private var copyID = UUID()
     
     private var visibleSections: [ToolSection] {
         ToolVisibility.visibleSections(ToolSection.all, hiddenRawValue: hiddenToolSectionIDs)
@@ -55,8 +57,17 @@ struct MenuView: View {
                             
                             Spacer()
                             
-                            Text(shortcut.keys)
-                                .foregroundStyle(.gray)
+                            if copiedShortcut == shortcut {
+                                Text("Copied")
+                                    .foregroundStyle(Color.accentColor)
+                            } else {
+                                Text(shortcut.keys)
+                                    .foregroundStyle(.gray)
+                            }
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            copy(shortcut)
                         }
                     }
                     
@@ -123,6 +134,19 @@ struct MenuView: View {
         }
         .frame(width: 200)
         .frame(maxHeight: 400)
+    }
+    
+    private func copy(_ shortcut: Shortcut) {
+        guard ShortcutClipboard.copy(shortcut) else { return }
+        copiedShortcut = shortcut
+        let id = UUID()
+        copyID = id
+        DispatchQueue.main.asyncAfter(deadline: .now() + ShortcutClipboard.copiedMessageDuration) {
+            // 後から別のコピー（同じ項目の再コピーを含む）があれば、その表示時間を優先する
+            if copyID == id {
+                copiedShortcut = nil
+            }
+        }
     }
 }
 
