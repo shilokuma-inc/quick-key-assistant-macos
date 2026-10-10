@@ -54,7 +54,7 @@ extension ToolSection {
             Shortcut(name: "Notifications", keys: "G N"),
             Shortcut(name: "Command Palette", keys: "⌘ K"),
             Shortcut(name: "Issue Tab", keys: "G I"),
-            Shortcut(name: "Pull requets Tab", keys: "G P"),
+            Shortcut(name: "Pull requests Tab", keys: "G P"),
         ],
         documentURL: URL(string: "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts")
     )
