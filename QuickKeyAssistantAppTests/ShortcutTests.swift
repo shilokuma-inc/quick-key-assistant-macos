@@ -49,4 +49,17 @@ final class ShortcutTests: XCTestCase {
         XCTAssertEqual(ToolSection.gitHub.documentURL?.absoluteString, "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts")
         XCTAssertEqual(ToolSection.slack.documentURL?.absoluteString, "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands")
     }
+
+    func testSectionLookupReturnsMatchingSection() {
+        XCTAssertEqual(ToolSection.section(id: ToolSection.gitHub.id, in: ToolSection.all), .gitHub)
+    }
+
+    func testSectionLookupFallsBackToFirstSection() {
+        XCTAssertEqual(ToolSection.section(id: "Unknown", in: ToolSection.all), ToolSection.all.first)
+        XCTAssertEqual(ToolSection.section(id: ToolSection.xcode.id, in: [.slack, .gitHub]), .slack)
+    }
+
+    func testSectionLookupReturnsNilWithoutSections() {
+        XCTAssertNil(ToolSection.section(id: ToolSection.xcode.id, in: []))
+    }
 }

@@ -69,3 +69,10 @@ extension ToolSection {
 
     static let all: [ToolSection] = [.xcode, .simulator, .gitHub, .slack]
 }
+
+extension ToolSection {
+    /// `id` に一致するセクション。見つからなければ先頭のセクションを返す
+    static func section(id: ID, in sections: [ToolSection]) -> ToolSection? {
+        sections.first { $0.id == id } ?? sections.first
+    }
+}
