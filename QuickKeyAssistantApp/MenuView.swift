@@ -8,243 +8,86 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State private var isHoveredGitHub = false
-    @State private var isHoveredSlack = false
+    @AppStorage("selectedToolSectionID") private var selectedSectionID = ToolSection.all.first?.id ?? ""
+    @AppStorage(ToolVisibility.storageKey) private var hiddenToolSectionIDs = ""
+    @State private var isHoveredDocument = false
     @State private var isHoveredAbout = false
     @State private var isHoveredQuit = false
+    @State private var copiedShortcut: Shortcut?
+    @State private var copyID = UUID()
+    
+    private var visibleSections: [ToolSection] {
+        ToolVisibility.visibleSections(ToolSection.all, hiddenRawValue: hiddenToolSectionIDs)
+    }
+    
+    private var selectedSection: ToolSection? {
+        ToolSection.section(id: selectedSectionID, in: visibleSections)
+    }
+    
+    private var sectionSelection: Binding<ToolSection.ID> {
+        Binding(
+            get: { selectedSection?.id ?? "" },
+            set: { selectedSectionID = $0 }
+        )
+    }
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                Text("Xcode")
-                    .foregroundStyle(.gray)
-                
-                HStack {
-                    Text("Run")
-                    
-                    Spacer()
-                    
-                    Text("⌘ R")
+                if visibleSections.isEmpty {
+                    Text("No tools to show. Turn on tools in Settings.")
                         .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Test")
                     
-                    Spacer()
-                    
-                    Text("⌘ U")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Build")
-                    
-                    Spacer()
-                    
-                    Text("⌘ B")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Comment out")
-                    
-                    Spacer()
-                    
-                    Text("⌘ /")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Indentation")
-                    
-                    Spacer()
-                    
-                    Text("^ I")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Rename")
-                    
-                    Spacer()
-                    
-                    Text("⌘ ^ E")
-                        .foregroundStyle(.gray)
-                }
-                
-                Divider()
-                
-                Text("Simulator")
-                    .foregroundStyle(.gray)
-                
-                HStack {
-                    Text("Screenshot")
-                    
-                    Spacer()
-                    
-                    Text("⌘ S")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Record")
-                    
-                    Spacer()
-                    
-                    Text("⌘ R")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Home")
-                    
-                    Spacer()
-                    
-                    Text("⌘ ⇧ H")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Lock")
-                    
-                    Spacer()
-                    
-                    Text("⌘ L")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Rotate LR")
-                    
-                    Spacer()
-                    
-                    Text("⌘ ←→")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Shake")
-                    
-                    Spacer()
-                    
-                    Text("⌘ ^ Z")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Keyboard I/O")
-                    
-                    Spacer()
-                    
-                    Text("⌘ K")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Input Mac Keyboard")
-                    
-                    Spacer()
-                    
-                    Text("⌘ ⇧ K")
-                        .foregroundStyle(.gray)
-                }
-                
-                Divider()
-                
-                Text("GitHub")
-                    .foregroundStyle(.gray)
-                
-                HStack {
-                    Text("Focus SearchBar")
-                    
-                    Spacer()
-                    
-                    Text("S or /")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Notifications")
-                    
-                    Spacer()
-                    
-                    Text("G N")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Command Palette")
-                    
-                    Spacer()
-                    
-                    Text("⌘ K")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Issue Tab")
-                    
-                    Spacer()
-                    
-                    Text("G I")
-                        .foregroundStyle(.gray)
-                }
-                
-                HStack {
-                    Text("Pull requets Tab")
-                    
-                    Spacer()
-                    
-                    Text("G P")
-                        .foregroundStyle(.gray)
-                }
-                
-                ZStack(alignment: .leading) {
-                    if isHoveredGitHub {
-                        Color.gray.opacity(0.3)
-                    }
-                    Text("Official Documents")
-                        .onHover { hovered in
-                            self.isHoveredGitHub = hovered
+                    Divider()
+                } else {
+                    Picker("Tool", selection: sectionSelection) {
+                        ForEach(visibleSections) { section in
+                            Text(section.name)
+                                .tag(section.id)
                         }
-                        .onTapGesture {
-                            if let url = URL(string: "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts") {
-                                NSWorkspace.shared.open(url)
+                    }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
+                }
+                
+                if let section = selectedSection {
+                    ForEach(section.shortcuts, id: \.self) { shortcut in
+                        HStack {
+                            Text(shortcut.name)
+                            
+                            Spacer()
+                            
+                            if copiedShortcut == shortcut {
+                                Text("Copied")
+                                    .foregroundStyle(Color.accentColor)
+                            } else {
+                                Text(shortcut.keys)
+                                    .foregroundStyle(.gray)
                             }
                         }
-                }
-                
-                Divider()
-                
-                Text("Slack")
-                    .foregroundStyle(.gray)
-                
-                HStack {
-                    Text("All read")
-                    
-                    Spacer()
-                    
-                    Text("⇧ esc")
-                        .foregroundStyle(.gray)
-                }
-                
-                ZStack(alignment: .leading) {
-                    if isHoveredSlack {
-                        Color.gray.opacity(0.3)
-                    }
-                    Text("Official Documents")
-                        .onHover { hovered in
-                            self.isHoveredSlack = hovered
-                        }
+                        .contentShape(Rectangle())
                         .onTapGesture {
-                            if let url = URL(string: "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands") {
-                                NSWorkspace.shared.open(url)
-                            }
+                            copy(shortcut)
                         }
+                    }
+                    
+                    if let documentURL = section.documentURL {
+                        ZStack(alignment: .leading) {
+                            if isHoveredDocument {
+                                Color.gray.opacity(0.3)
+                            }
+                            Text("Official Documents")
+                                .onHover { hovered in
+                                    self.isHoveredDocument = hovered
+                                }
+                                .onTapGesture {
+                                    NSWorkspace.shared.open(documentURL)
+                                }
+                        }
+                    }
+                    
+                    Divider()
                 }
-                
-                Divider()
                 
                 ZStack(alignment: .leading) {
                     if isHoveredAbout {
@@ -291,6 +134,19 @@ struct MenuView: View {
         }
         .frame(width: 200)
         .frame(maxHeight: 400)
+    }
+    
+    private func copy(_ shortcut: Shortcut) {
+        guard ShortcutClipboard.copy(shortcut) else { return }
+        copiedShortcut = shortcut
+        let id = UUID()
+        copyID = id
+        DispatchQueue.main.asyncAfter(deadline: .now() + ShortcutClipboard.copiedMessageDuration) {
+            // 後から別のコピー（同じ項目の再コピーを含む）があれば、その表示時間を優先する
+            if copyID == id {
+                copiedShortcut = nil
+            }
+        }
     }
 }
 

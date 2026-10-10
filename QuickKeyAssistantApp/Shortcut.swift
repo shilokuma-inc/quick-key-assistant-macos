@@ -1,0 +1,122 @@
+//
+//  Shortcut.swift
+//  QuickKeyAssistantApp
+//
+
+import Foundation
+
+struct Shortcut: Hashable {
+    let name: String
+    let keys: String
+}
+
+struct ToolSection: Identifiable, Hashable {
+    let name: String
+    let shortcuts: [Shortcut]
+    let documentURL: URL?
+
+    var id: String { name }
+}
+
+extension ToolSection {
+    static let xcode = ToolSection(
+        name: "Xcode",
+        shortcuts: [
+            Shortcut(name: "Run", keys: "⌘ R"),
+            Shortcut(name: "Test", keys: "⌘ U"),
+            Shortcut(name: "Build", keys: "⌘ B"),
+            Shortcut(name: "Profile", keys: "⌘ I"),
+            Shortcut(name: "Analyze", keys: "⌘ ⇧ B"),
+            Shortcut(name: "Comment out", keys: "⌘ /"),
+            Shortcut(name: "Indentation", keys: "^ I"),
+            Shortcut(name: "Edit All in Scope", keys: "⌘ ^ E"),
+            Shortcut(name: "Move Line Up", keys: "⌘ ⌥ ["),
+            Shortcut(name: "Move Line Down", keys: "⌘ ⌥ ]"),
+            Shortcut(name: "Open Quickly", keys: "⌘ ⇧ O"),
+            Shortcut(name: "Find in Project", keys: "⌘ ⇧ F"),
+            Shortcut(name: "Reveal in Navigator", keys: "⌘ ⇧ J"),
+            Shortcut(name: "Quick Actions", keys: "⌘ ⇧ A"),
+            Shortcut(name: "Library", keys: "⌘ ⇧ L"),
+            Shortcut(name: "Debug Area", keys: "⌘ ⇧ Y"),
+            Shortcut(name: "Canvas", keys: "⌘ ⌥ ↩"),
+            Shortcut(name: "Resume Preview", keys: "⌘ ⌥ P"),
+        ],
+        documentURL: nil
+    )
+
+    static let simulator = ToolSection(
+        name: "Simulator",
+        shortcuts: [
+            Shortcut(name: "Screenshot", keys: "⌘ S"),
+            Shortcut(name: "Record", keys: "⌘ R"),
+            Shortcut(name: "Home", keys: "⌘ ⇧ H"),
+            Shortcut(name: "Lock", keys: "⌘ L"),
+            Shortcut(name: "Rotate LR", keys: "⌘ ←→"),
+            Shortcut(name: "Shake", keys: "⌘ ^ Z"),
+            Shortcut(name: "Keyboard I/O", keys: "⌘ K"),
+            Shortcut(name: "Input Mac Keyboard", keys: "⌘ ⇧ K"),
+        ],
+        documentURL: nil
+    )
+
+    static let gitHub = ToolSection(
+        name: "GitHub",
+        shortcuts: [
+            Shortcut(name: "Focus SearchBar", keys: "S or /"),
+            Shortcut(name: "Notifications", keys: "G N"),
+            Shortcut(name: "Command Palette", keys: "⌘ K"),
+            Shortcut(name: "Issue Tab", keys: "G I"),
+            Shortcut(name: "Pull requests Tab", keys: "G P"),
+            Shortcut(name: "Show Shortcuts", keys: "?"),
+            Shortcut(name: "Code Tab", keys: "G C"),
+            Shortcut(name: "Actions Tab", keys: "G A"),
+            Shortcut(name: "Discussions Tab", keys: "G G"),
+            Shortcut(name: "Wiki Tab", keys: "G W"),
+            Shortcut(name: "Open in github.dev", keys: "."),
+            Shortcut(name: "File Finder", keys: "t"),
+            Shortcut(name: "Jump to Line", keys: "l"),
+            Shortcut(name: "Switch Branch", keys: "w"),
+            Shortcut(name: "Permalink", keys: "y"),
+            Shortcut(name: "Blame View", keys: "b"),
+            Shortcut(name: "Create Issue", keys: "C"),
+            Shortcut(name: "Request Reviewer", keys: "Q"),
+            Shortcut(name: "Toggle Preview", keys: "⌘ ⇧ P"),
+            Shortcut(name: "Submit Comment", keys: "⌘ ↩"),
+        ],
+        documentURL: URL(string: "https://docs.github.com/en/get-started/accessibility/keyboard-shortcuts")
+    )
+
+    static let slack = ToolSection(
+        name: "Slack",
+        shortcuts: [
+            Shortcut(name: "All read", keys: "⇧ esc"),
+            Shortcut(name: "Read Conversation", keys: "esc"),
+            Shortcut(name: "New Message", keys: "⌘ N"),
+            Shortcut(name: "Search", keys: "⌘ G"),
+            Shortcut(name: "Search in Conversation", keys: "⌘ F"),
+            Shortcut(name: "Latest Unread", keys: "⌘ J"),
+            Shortcut(name: "Previous Unread", keys: "⇧ ⌥ ↑"),
+            Shortcut(name: "Next Unread", keys: "⇧ ⌥ ↓"),
+            Shortcut(name: "Back", keys: "⌘ ["),
+            Shortcut(name: "Forward", keys: "⌘ ]"),
+            Shortcut(name: "All Unread", keys: "⌘ ⇧ A"),
+            Shortcut(name: "Activity", keys: "⌘ ⇧ M"),
+            Shortcut(name: "Threads", keys: "⌘ ⇧ T"),
+            Shortcut(name: "Browse DMs", keys: "⌘ ⇧ K"),
+            Shortcut(name: "Browse Channels", keys: "⌘ ⇧ L"),
+            Shortcut(name: "Set Status", keys: "⌘ ⇧ Y"),
+            Shortcut(name: "Huddle", keys: "⌘ ⇧ H"),
+            Shortcut(name: "Mute Huddle", keys: "⌘ ⇧ Space"),
+        ],
+        documentURL: URL(string: "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands")
+    )
+
+    static let all: [ToolSection] = [.xcode, .simulator, .gitHub, .slack]
+}
+
+extension ToolSection {
+    /// `id` に一致するセクション。見つからなければ先頭のセクションを返す
+    static func section(id: ID, in sections: [ToolSection]) -> ToolSection? {
+        sections.first { $0.id == id } ?? sections.first
+    }
+}
