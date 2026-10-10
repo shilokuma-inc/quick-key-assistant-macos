@@ -9,12 +9,17 @@ import SwiftUI
 
 struct MenuView: View {
     @AppStorage("selectedToolSectionID") private var selectedSectionID = ToolSection.all.first?.id ?? ""
+    @AppStorage(ToolVisibility.storageKey) private var hiddenToolSectionIDs = ""
     @State private var isHoveredDocument = false
     @State private var isHoveredAbout = false
     @State private var isHoveredQuit = false
     
+    private var visibleSections: [ToolSection] {
+        ToolVisibility.visibleSections(ToolSection.all, hiddenRawValue: hiddenToolSectionIDs)
+    }
+    
     private var selectedSection: ToolSection? {
-        ToolSection.section(id: selectedSectionID, in: ToolSection.all)
+        ToolSection.section(id: selectedSectionID, in: visibleSections)
     }
     
     private var sectionSelection: Binding<ToolSection.ID> {
@@ -27,14 +32,21 @@ struct MenuView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                Picker("Tool", selection: sectionSelection) {
-                    ForEach(ToolSection.all) { section in
-                        Text(section.name)
-                            .tag(section.id)
+                if visibleSections.isEmpty {
+                    Text("No tools to show. Turn on tools in Settings.")
+                        .foregroundStyle(.gray)
+                    
+                    Divider()
+                } else {
+                    Picker("Tool", selection: sectionSelection) {
+                        ForEach(visibleSections) { section in
+                            Text(section.name)
+                                .tag(section.id)
+                        }
                     }
+                    .pickerStyle(.menu)
+                    .labelsHidden()
                 }
-                .pickerStyle(.menu)
-                .labelsHidden()
                 
                 if let section = selectedSection {
                     ForEach(section.shortcuts, id: \.self) { shortcut in
