@@ -8,17 +8,35 @@
 import SwiftUI
 
 struct MenuView: View {
-    @State private var hoveredDocumentSection: ToolSection.ID?
+    @AppStorage("selectedToolSectionID") private var selectedSectionID = ToolSection.all.first?.id ?? ""
+    @State private var isHoveredDocument = false
     @State private var isHoveredAbout = false
     @State private var isHoveredQuit = false
+    
+    private var selectedSection: ToolSection? {
+        ToolSection.section(id: selectedSectionID, in: ToolSection.all)
+    }
+    
+    private var sectionSelection: Binding<ToolSection.ID> {
+        Binding(
+            get: { selectedSection?.id ?? "" },
+            set: { selectedSectionID = $0 }
+        )
+    }
     
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 8) {
-                ForEach(ToolSection.all) { section in
-                    Text(section.name)
-                        .foregroundStyle(.gray)
-                    
+                Picker("Tool", selection: sectionSelection) {
+                    ForEach(ToolSection.all) { section in
+                        Text(section.name)
+                            .tag(section.id)
+                    }
+                }
+                .pickerStyle(.menu)
+                .labelsHidden()
+                
+                if let section = selectedSection {
                     ForEach(section.shortcuts, id: \.self) { shortcut in
                         HStack {
                             Text(shortcut.name)
@@ -32,16 +50,12 @@ struct MenuView: View {
                     
                     if let documentURL = section.documentURL {
                         ZStack(alignment: .leading) {
-                            if hoveredDocumentSection == section.id {
+                            if isHoveredDocument {
                                 Color.gray.opacity(0.3)
                             }
                             Text("Official Documents")
                                 .onHover { hovered in
-                                    if hovered {
-                                        self.hoveredDocumentSection = section.id
-                                    } else if self.hoveredDocumentSection == section.id {
-                                        self.hoveredDocumentSection = nil
-                                    }
+                                    self.isHoveredDocument = hovered
                                 }
                                 .onTapGesture {
                                     NSWorkspace.shared.open(documentURL)
