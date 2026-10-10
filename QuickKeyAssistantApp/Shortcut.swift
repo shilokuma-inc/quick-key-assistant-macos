@@ -39,7 +39,7 @@ extension ToolSection {
             Shortcut(name: "Library", keys: "⌘ ⇧ L"),
             Shortcut(name: "Debug Area", keys: "⌘ ⇧ Y"),
             Shortcut(name: "Canvas", keys: "⌘ ⌥ ↩"),
-            Shortcut(name: "Refresh Preview", keys: "⌘ ⌥ P"),
+            Shortcut(name: "Resume Preview", keys: "⌘ ⌥ P"),
         ],
         documentURL: nil
     )
