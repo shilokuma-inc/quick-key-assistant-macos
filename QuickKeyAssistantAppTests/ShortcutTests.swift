@@ -30,6 +30,10 @@ final class ShortcutTests: XCTestCase {
         XCTAssertEqual(names.count, Set(names).count, "Duplicate sections: \(names)")
     }
 
+    func testSectionsAreListedInOrder() {
+        XCTAssertEqual(ToolSection.all.map(\.name), ["Xcode", "Device Hub", "GitHub", "Slack"])
+    }
+
     func testShortcutNamesAreUniqueInEachSection() {
         for section in ToolSection.all {
             let names = section.shortcuts.map(\.name)
