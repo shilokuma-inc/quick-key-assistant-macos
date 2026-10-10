@@ -75,6 +75,23 @@ extension ToolSection {
         name: "Slack",
         shortcuts: [
             Shortcut(name: "All read", keys: "⇧ esc"),
+            Shortcut(name: "Read Conversation", keys: "esc"),
+            Shortcut(name: "New Message", keys: "⌘ N"),
+            Shortcut(name: "Search", keys: "⌘ G"),
+            Shortcut(name: "Search in Conversation", keys: "⌘ F"),
+            Shortcut(name: "Latest Unread", keys: "⌘ J"),
+            Shortcut(name: "Previous Unread", keys: "⇧ ⌥ ↑"),
+            Shortcut(name: "Next Unread", keys: "⇧ ⌥ ↓"),
+            Shortcut(name: "Back", keys: "⌘ ["),
+            Shortcut(name: "Forward", keys: "⌘ ]"),
+            Shortcut(name: "All Unread", keys: "⌘ ⇧ A"),
+            Shortcut(name: "Activity", keys: "⌘ ⇧ M"),
+            Shortcut(name: "Threads", keys: "⌘ ⇧ T"),
+            Shortcut(name: "Browse DMs", keys: "⌘ ⇧ K"),
+            Shortcut(name: "Browse Channels", keys: "⌘ ⇧ L"),
+            Shortcut(name: "Set Status", keys: "⌘ ⇧ Y"),
+            Shortcut(name: "Huddle", keys: "⌘ ⇧ H"),
+            Shortcut(name: "Mute Huddle", keys: "⌘ ⇧ Space"),
         ],
         documentURL: URL(string: "https://slack.com/intl/en-gb/help/articles/201374536-Slack-keyboard-shortcuts-and-commands")
     )
