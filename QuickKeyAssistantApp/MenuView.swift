@@ -13,6 +13,7 @@ struct MenuView: View {
     @State private var isHoveredDocument = false
     @State private var isHoveredAbout = false
     @State private var isHoveredQuit = false
+    @State private var copiedShortcut: Shortcut?
     
     private var visibleSections: [ToolSection] {
         ToolVisibility.visibleSections(ToolSection.all, hiddenRawValue: hiddenToolSectionIDs)
@@ -55,8 +56,17 @@ struct MenuView: View {
                             
                             Spacer()
                             
-                            Text(shortcut.keys)
-                                .foregroundStyle(.gray)
+                            if copiedShortcut == shortcut {
+                                Text("Copied")
+                                    .foregroundStyle(Color.accentColor)
+                            } else {
+                                Text(shortcut.keys)
+                                    .foregroundStyle(.gray)
+                            }
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            copy(shortcut)
                         }
                     }
                     
@@ -123,6 +133,16 @@ struct MenuView: View {
         }
         .frame(width: 200)
         .frame(maxHeight: 400)
+    }
+    
+    private func copy(_ shortcut: Shortcut) {
+        ShortcutClipboard.copy(shortcut)
+        copiedShortcut = shortcut
+        DispatchQueue.main.asyncAfter(deadline: .now() + ShortcutClipboard.copiedMessageDuration) {
+            if copiedShortcut == shortcut {
+                copiedShortcut = nil
+            }
+        }
     }
 }
 
