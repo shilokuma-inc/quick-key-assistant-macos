@@ -2,7 +2,7 @@
 
 ## App Store
 
-<table><tr><td>ダウンロードリンク</td><td style="text-align: center;"><a href="https://apps.apple.com/jp/app/quick-key-assistant/id6502866822"><img src="https://apple-resources.s3.amazonaws.com/media-badges/download-on-the-mac-app-store/black/en-us.svg" width="100"></tr></table>
+[![Mac App Store からダウンロード](https://toolbox.marketingtools.apple.com/api/badges/download-on-the-mac-app-store/black/ja-jp)](https://apps.apple.com/jp/app/quick-key-assistant/id6502866822)
 
 ## Status
 
