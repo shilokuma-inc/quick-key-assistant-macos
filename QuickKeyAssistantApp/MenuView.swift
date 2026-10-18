@@ -15,6 +15,7 @@ struct MenuView: View {
     @State private var isHoveredQuit = false
     @State private var copiedShortcut: Shortcut?
     @State private var copyID = UUID()
+    @State private var contentHeight: CGFloat = 0
     
     private var visibleSections: [ToolSection] {
         ToolVisibility.visibleSections(ToolSection.all, hiddenRawValue: hiddenToolSectionIDs)
@@ -131,10 +132,18 @@ struct MenuView: View {
                 }
             }
             .padding(16)
+            .background {
+                GeometryReader { proxy in
+                    Color.clear.preference(key: ContentHeightKey.self, value: proxy.size.height)
+                }
+            }
         }
-        .frame(width: 200)
-        .frame(maxHeight: 400)
+        .onPreferenceChange(ContentHeightKey.self) { contentHeight = $0 }
+        // ScrollView は理想の高さを持たず、MenuBarExtra のウインドウでは高さが 0 に潰れるため、中身の高さを測って与える
+        .frame(width: 200, height: min(contentHeight, Self.maxHeight))
     }
+    
+    private static let maxHeight: CGFloat = 400
     
     private func copy(_ shortcut: Shortcut) {
         guard ShortcutClipboard.copy(shortcut) else { return }
@@ -147,6 +156,14 @@ struct MenuView: View {
                 copiedShortcut = nil
             }
         }
+    }
+}
+
+private struct ContentHeightKey: PreferenceKey {
+    static var defaultValue: CGFloat = 0
+    
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = max(value, nextValue())
     }
 }
 
