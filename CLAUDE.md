@@ -40,13 +40,14 @@ xcodebuild test -project QuickKeyAssistantApp.xcodeproj -scheme QuickKeyAssistan
 | ワークフロー | 実行するタイミング | 内容 |
 | --- | --- | --- |
 | Build（`build-working.yml` / `build-develop.yml` / `build-main.yml`） | 作業ブランチ / `develop` / `main` への push | 署名なしの `build-for-testing`（テストは流さない） |
-| Archive（`archive-working.yml` / `archive-develop.yml` / `archive-main.yml`） | 同上 | Archive → Export |
-| Release（`release-develop.yml` / `release-main.yml`） | `develop` / `main` への push・手動 | Archive → App Store Connect へアップロード（ビルド番号は UTC の日時） |
+| Archive（`archive-working.yml` / `archive-develop.yml` / `archive-main.yml`） | 作業ブランチ / `develop` への push（`archive-main.yml` は手動だけ） | Archive → Export |
+| Upload（`upload.yml`） | `develop` への push・手動 | Archive → App Store Connect へアップロード（ビルド番号は UTC の日時） |
 | Close goal Discussion（`close-goal-discussion.yml`） | `epic-final` 付きの PR が `develop` にマージされたとき | ゴール元の Discussion を解決済みで閉じる |
 
 - Xcode は CI で `latest-stable`。ローカルの Xcode と版が違うと、片方だけで落ちることがある
 - 作業ブランチ（ループの `epic/**` と子 PR のブランチを含む）への push ごとに Build と Archive の 2 つの macOS ジョブが走る
-- Archive / Release は org 共有の Secrets（`EXPORT_OPTIONS`・`APPLE_API_KEY_BASE64`・`APPLE_API_KEY_ID`・`APPLE_API_ISSUER_ID`）を使う。ループやエージェントからは触れない
+- `main` への push では Build だけが走る。Release の Archive を確かめたいときは `archive-main.yml` を手動で実行する
+- Archive / Upload は org 共有の Secrets（`EXPORT_OPTIONS`・`APPLE_API_KEY_BASE64`・`APPLE_API_KEY_ID`・`APPLE_API_ISSUER_ID`）を使う。ループやエージェントからは触れない
 
 ## ブランチ運用
 
