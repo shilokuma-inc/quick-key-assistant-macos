@@ -1,0 +1,10 @@
+{
+  "v": 1,
+  "project": "QuickKeyAssistantApp.xcodeproj",
+  "scheme": "QuickKeyAssistantApp",
+  "platforms": ["macOS"],
+  "uiTests": "QuickKeyAssistantAppUITests",
+  "swiftlint": false,
+  "archive": { "platforms": ["macOS"] },
+  "unmanaged": [".github/workflows/app-store-screenshots.yml", ".github/workflows/app-store-creative.yml", ".swiftlint.yml"]
+}
